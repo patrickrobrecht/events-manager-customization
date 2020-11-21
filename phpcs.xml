@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<ruleset name="project coding standard">
+    <!-- display progress -->
+    <arg value="psv"/>
+
+    <!-- use colors in output -->
+    <arg name="colors"/>
+
+    <!-- Paths to check -->
+    <file>events-manager-customization.php</file>
+
+    <!-- rules -->
+    <rule ref="PSR12"/>
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <exclude-pattern>events-manager-customization.php</exclude-pattern>
+    </rule>
+</ruleset>

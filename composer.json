@@ -1,0 +1,24 @@
+{
+  "name": "patrickrobrecht/events-manager-customization",
+  "description": "Customization of the Events Manager plugin",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Patrick Robrecht",
+      "email": "mail@patrick-robrecht.de",
+      "role": "Developer and Maintainer"
+    }
+  ],
+  "require-dev": {
+    "phpcompatibility/php-compatibility": "^9.3.5",
+    "squizlabs/php_codesniffer": "^3.5.8"
+  },
+  "scripts": {
+    "cs": [
+      "phpcs"
+    ],
+    "csfix": [
+      "phpcbf"
+    ]
+  }
+}
