@@ -2,58 +2,30 @@
 
 /**
  * Plugin Name: Events Manager Customization
+ * Plugin URI: https://patrick-robrecht.de/wordpress/
  * Description: Customization of the Events Manager plugin
  * Version: 1.0.0
+ * Requires at least: 5.5
+ * Requires PHP: 7.4
+ * Author: Patrick Robrecht
+ * Author URI: https://patrick-robrecht.de/
+ * License: GPLv3
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.htm
  *
  * @package WordPress
  */
 
-/**
- * @param bool $result
- * @param EM_Booking $EM_Booking
- *
- * @return false
- */
-function events_manager_customization_em_validation($result, $EM_Booking)
-{
-    // Make phone number required.
-    if (empty($_REQUEST['dbem_phone'])) {
-        $EM_Booking->add_error('Bitte gib eine Telefonnummer an.');
-        $result = false;
-    }
+use EventsManagerCustomization\BookingFormCustomizer;
 
-    // Validate street.
-    if (empty($_REQUEST['street'])) {
-        $EM_Booking->add_error('Bitte gib die Straße an.');
-        $result = false;
-    }
-    $street = events_manager_customization_em_sanitize($_REQUEST['street']);
+require __DIR__ . '/src/Field.php';
+require __DIR__ . '/src/BookingFormCustomizer.php';
 
-    // Validate postal code.
-    if (empty($_REQUEST['postal_code'])) {
-        $EM_Booking->add_error('Bitte gib die PLZ an.');
-        $result = false;
-    }
-    $postalCode = events_manager_customization_em_sanitize($_REQUEST['postal_code']);
-
-    // Validate city.
-    if (empty($_REQUEST['city'])) {
-        $EM_Booking->add_error('Bitte gib deinen Wohnort an.');
-        $result = false;
-    }
-    $city = events_manager_customization_em_sanitize($_REQUEST['city']);
-
-    // Adjust comment and add to booking meta data.
-    $EM_Booking->booking_comment = sprintf('%s, %s %s. %s', $street, $postalCode, $city, $EM_Booking->booking_comment);
-    $EM_Booking->booking_meta['registration']['street'] = $street;
-    $EM_Booking->booking_meta['registration']['postal_code'] = $postalCode;
-    $EM_Booking->booking_meta['registration']['city'] = $city;
-    return $result;
+if (!defined('ABSPATH')) {
+    die;
 }
 
-add_filter('em_booking_validate', 'events_manager_customization_em_validation', 12, 2);
-
-function events_manager_customization_em_sanitize($string)
-{
-    return wp_kses(wp_unslash($string), []);
-}
+BookingFormCustomizer::init();
+add_action('em_register_form', [BookingFormCustomizer::class, 'addFieldsToBookingForm']);
+add_filter('em_booking_validate', [BookingFormCustomizer::class, 'validate'], 12, 2);
+add_action('em_bookings_table_cols_template', [BookingFormCustomizer::class, 'addColumnsToBookingsTable'], 10, 2);
+add_filter('em_bookings_table_rows_col', [BookingFormCustomizer::class, 'getColumnForBookingTable'], 10, 5);

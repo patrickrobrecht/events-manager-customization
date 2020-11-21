@@ -8,12 +8,9 @@
 
     <!-- Paths to check -->
     <file>events-manager-customization.php</file>
+    <file>src</file>
 
     <!-- rules -->
     <rule ref="PSR12"/>
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
-
-    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
-        <exclude-pattern>events-manager-customization.php</exclude-pattern>
-    </rule>
 </ruleset>
