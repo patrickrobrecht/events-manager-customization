@@ -1,12 +1,13 @@
 # Events Manager Customization
 
-This WordPress plugin is an extension for [Events Manager](https://wordpress.org/plugins/events-manager/) by Markus Sykes.
+This extension for the booking for the [Events Manager](https://wordpress.org/plugins/events-manager/) 
+plugin by Markus Sykes allows to make the phone number required and add required fields for the postal address.
 
-Code inspired by [Add custom fields to event form](https://www.b-website.com/events-manager-wordpress-add-custom-fields-event-form).
+The code is inspired by [Add custom fields to event form](https://www.b-website.com/events-manager-wordpress-add-custom-fields-event-form).
 
 ## Changelog
 
 ### 1.0.0
-- Make the phone number field in the booking form required.
-- Add additional fields street, postal code and city (all required) to the booking form
-    and the booking list in the admin area. 
+- Allow to make the phone number field in the booking form required.
+- Allow to add require additional fields for the postal address (street, postal code and city) to the booking form
+    and show the booking list in the admin area.
