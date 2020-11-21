@@ -6,8 +6,8 @@
  * Description: Customization of the Events Manager plugin
  * Version: 1.0.0
  * Requires at least: 5.5
- * Requires PHP: 7.4
  * Tested up to: 5.5
+ * Requires PHP: 7.1
  * Author: Patrick Robrecht
  * Author URI: https://patrick-robrecht.de/
  * License: GPLv3
