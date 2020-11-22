@@ -20,4 +20,4 @@ This plugin allows to customize the [Events Manager](https://wordpress.org/plugi
 === 1.0.0 ===
 - Allow to make the phone number field in the booking form required.
 - Allow to add require additional fields for the postal address (street, postal code and city) to the booking form
-    and show the booking list in the admin area.
+    and show them in the booking list in the admin area.

@@ -153,7 +153,7 @@ class BookingFormCustomizer
     {
         ?>
         <div>
-            <h4><?php _e('Require phone number in booking form', 'events-manager-customization'); ?></h4>
+            <h4><?php _e('Options for the booking form', 'events-manager-customization'); ?></h4>
             <?php
             foreach (self::$options as $optionKey => $optionName) {
                 $required = get_post_meta($EM_Event->post_id, '_' . $optionKey, true) === '1';
