@@ -5,8 +5,8 @@
  * Plugin URI: https://patrick-robrecht.de/wordpress/
  * Description: Customization of the Events Manager plugin
  * Version: 1.0.0
- * Requires at least: 5.5
- * Tested up to: 5.5
+ * Requires at least: 5.2
+ * Tested up to: 5.6
  * Requires PHP: 7.1
  * Author: Patrick Robrecht
  * Author URI: https://patrick-robrecht.de/

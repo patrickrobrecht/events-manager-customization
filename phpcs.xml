@@ -17,4 +17,17 @@
     <!-- Check for PHP version compatibility. -->
     <config name="testVersion" value="7.1-"/>
     <rule ref="PHPCompatibility"/>
+
+    <!-- Check for WordPress compatibility. -->
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array" value="events-manager-customization" />
+        </properties>
+    </rule>
+    <rule ref="WordPress.WP.AlternativeFunctions" />
+    <rule ref="WordPress.WP.DeprecatedFunctions" />
+    <rule ref="WordPress.WP.DeprecatedClasses" />
+    <rule ref="WordPress.WP.DeprecatedParameters" />
+    <rule ref="WordPress.WP.DeprecatedParameterValues" />
+    <config name="minimum_supported_wp_version" value="5.2" />
 </ruleset>
